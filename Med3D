@@ -1,0 +1,25 @@
+MED3D: TRANSFER LEARNING FOR 3D MEDICAL IMAGE ANALYSIS
+
+Abstract:  1. Transfer learning from ImageNet speed up convergence and impove accuracy.
+           2. Large datasets is challenging to build up due to the difficulty of data acquisition and annotation in 3D medical images.
+           3. 3DSeg-8 dataset with diverse modalities, target organs, and pathologies was build.
+           4. Med3D network was designed to train multi-domain 3DSeg-8 dataset to make a series of pre-trained models.
+           5. Lung segmentation, pulmonary nodule classification, and liver segmentation tasks proved 
+              the significant performance of Med3D in accelerating training convergence speed and improving accuracy.
+
+Introduction: 1. The success of deep convolutional neural networks (DCNN) based on the massive amount of training data with detailed annotations. e.g. ImageNet and MS COCO
+              2. Challenges in buiding large 3D medical image dataset: intrusive nature of some medical image modalities (e.g. CT), the prolonged imaging duration as well as the laborious annotation in 3D.
+                 Tricks to improve model performance: convert 3D to 2D and apply transfer learning from natural images, or use 3D information from temperal video data.
+                 Loss 3D spacial information and cause strong bias.
+              3. Solutions: firstly, build a large 3D medical dataset. Secondly, establish a encoder-decoder network called Med3D.
+              4. Contributions: (1) propose a heterogeneous Med3D network aiming for multi-domain medical data (2) tranfer backbone of the Med3D model to three new medical image task.
+                                (3) Med3D is open-sourced.
+                                
+                                
+Co-train models based on multi-domain 3D medical dateset
+
+Method: 1. Data selection and normalization
+           A. Data collected from 8 segmentation datasets rather than classification datasets. Because classification datasets contained a much weaker supervision as the label may only
+           correspond to small portion of the volumn data. Segmentation task could result in better representative features.-->diversity in space reslution, intensity, scan region, etc.
+           B. Spacial Normalization: images were resampled to median spacing in each domain to avoid overinteplotation. 
+           C. Intensity Normalization: 
