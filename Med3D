@@ -22,4 +22,9 @@ Method: 1. Data selection and normalization
            A. Data collected from 8 segmentation datasets rather than classification datasets. Because classification datasets contained a much weaker supervision as the label may only
            correspond to small portion of the volumn data. Segmentation task could result in better representative features.-->diversity in space reslution, intensity, scan region, etc.
            B. Spacial Normalization: images were resampled to median spacing in each domain to avoid overinteplotation. 
-           C. Intensity Normalization: 
+           C. Intensity Normalization: to eliminate the side-effect of pixel value outliers, sort all the pixel values in each image, truncate the intensities to the range of 0.5 and 99.5 percentiles and normalized the values using mean and standard deviation in each volumn.
+
+        2. Med3D network
+           A. a shared encoder and multi-branch decoder. Encoder can be transferred to other tasks.
+           B. Transfer Learning
+              Code: https://github.com/Tencent/MedicalNet.
